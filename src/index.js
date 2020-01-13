@@ -1,10 +1,53 @@
-import {createNavbar} from './navbar.js';
+import {createNavbar} from './navbar';
+import {homeTab} from './homepage';
+import {menuPage as menuTab} from './menu';
 
-let content = document.querySelector('.content');
+createNavbar();
+homeTab();
 
-content.appendChild(createNavbar())
+document.querySelectorAll('.nav-item').forEach((tab) => {
 
-// console.log(createNavbar());
+    tab.addEventListener('click', (e) => {
+        loadPage(e.target);
+    })
+
+});
 
 
-//TODO implement tab switching feature
+function loadPage(tab) {
+    let pageName = tab.dataset.page.toLowerCase();
+    updateNavElement(pageName);
+
+    let oldContent = document.querySelector('.content');
+    oldContent.remove();
+
+    let newContent = document.createElement('div');
+    newContent.classList.add('content');
+    document.querySelector('body').appendChild(newContent);
+
+    if (pageName == 'home') {
+        homeTab();
+    }
+    else if (pageName == 'menu'){
+        menuTab();
+
+    }
+    else if (pageName == 'contact'){
+        contactTab();
+
+    }
+}
+
+
+function updateNavElement(pageName) {
+    document.querySelectorAll('.nav-item').forEach(tab => {
+        let hasSelected = tab.classList.contains('tab-selected');
+        let hasClicked = tab.dataset.page.toLowerCase() == pageName;
+        if (hasClicked && hasSelected){
+            tab.classList.add('tab-selected')
+        }
+        if (!hasClicked && !hasSelected){
+            tab.classList.remove('tab-selected')
+        }
+    })
+}
