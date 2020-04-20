@@ -54,12 +54,13 @@ html, body{
 
 navbar {
     position: fixed;
-    height: 200px;
-    padding: 40px 0px 0px 0px;
+    height: 80px;
+    padding: 30px 0px 0px 0px;
     width: 100%;
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 10%;
+    background-color: rgba(0,0,0, 0.6);
 
 }
 
@@ -73,25 +74,41 @@ navbar {
 }
 
 .icon {
+    margin-top: autol;
+    margin-bottom: auto;
+    height: 100%;
+    
 
 }
-ul {
+navbar ul {
     display: flex;
 }
 
-.nav-item{
+.nav-item, .phone-number{
     color: white;
     text-transform: uppercase;
     padding: 15px 25px 15px 25px;
 }
+.phone-number {
+    width: 100px;
+}
+
 
 .nav-item:hover{
     cursor: pointer;
 }
-
-.nav-selected{
-    
+.phone-number:hover {
+    cursor: default;
 }
+.tab-selected::after{
+    content: '';
+    display: block;
+    background-color: white;
+    height: 3px;
+    top: 3px;
+    position: relative;
+}
+
 .container {
     background: rgba(0,0,0, 0.8);
     color: white;
@@ -107,15 +124,58 @@ ul {
     font-size: 3rem;
 }
 
+
 .menu-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+    grid-template: 1fr 1fr / 1fr 1fr;
     /*Insert template columns.*/
 }
-.columnTea, .rowCrossaint, .rowCake{
 
+.menu-item {
+    height: 100%;
+    width: 600px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.menu-item-container {
+    height: 40%;
+    width: 30%;
+    text-align: center;
+    background-color: rgba(0,0,0, 0.6);
 }
 
+
+.coffee {
+    background: url("./images/coffee.jpg");
+}
+.cake {
+    background: url("./images/cake.jpg");
+}
+.croissant {
+    background: url("./images/croissant.jpg");
+}
+.tea {
+    background: url("./images/tea.jpg");  
+}
+
+.croissant, .coffee, .tea, .cake {
+    background-size: contain;  
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.menu-item-name {
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    font-size: large;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 0.3rem;
+}
 .iconContainer{
     display: flex;
     padding-left: 10%;
@@ -130,3 +190,12 @@ ul {
     cursor: pointer;
 }
 
+.credits-list {
+    height: 300px;
+    text-align: left;
+    font-size: 2rem;
+}
+.credits-list li {
+    margin-top: 20px;
+    color: brown;
+}
