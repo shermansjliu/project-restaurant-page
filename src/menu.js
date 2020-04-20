@@ -1,29 +1,27 @@
-/**
- * Created by work on 2/1/2020.
- */
-const menuPage= () => {
+function createMenuItem(menu_item, name) {
+    const item_name_container = document.createElement('div');
+    const item_name = document.createElement('p');
+    item_name_container.classList.add("menu-item-container");
+    item_name.textContent = name;
+    item_name.classList.toggle("menu-item-name")
+    // menu_item.textContent = name;
+    item_name_container.appendChild(item_name)
+    menu_item.appendChild(item_name_container);
+}
+export function menuPage() {
     const content = document.querySelector('.content');
-    const menuGrid = document.createElement('div');
-    const columnTea = document.createElement('div');
-    const rowCrossaint = document.createElement('div');
-    const rowCake = document.createElement('div');
+    const menu_grid = document.createElement('div');
+    const cafe_items = ["tea", "croissant", "coffee", "cake"];
 
-    menuGrid.appendChild(columnTea);
-    menuGrid.appendChild(rowCrossaint);
-    menuGrid.appendChild(rowCake);
-    menuGrid.classList.toggle('menu-grid');
-
-    columnTea.classList.toggle('columnTea');
-    columnTea.textContent = 'Tea';
-
-    rowCrossaint.textContent = 'Crossaint';
-    rowCrossaint.classList.toggle('rowCrossaint');
-
-    rowCake.textContent = 'Cake';
-    rowCake.classList.toggle('rowCake');
-
-    content.appendChild(menuGrid);
-
+    menu_grid.classList.add("menu-grid");
+    for (let i  = 0; i < 4; i++) {
+        let menu_item = document.createElement('div');
+        menu_item.classList.add(cafe_items[i]);
+        menu_item.classList.toggle('menu-item');
+        createMenuItem(menu_item, cafe_items[i]);
+        menu_grid.append(menu_item);
+    }
+    content.appendChild(menu_grid);
 };
 
-export {menuPage}
+

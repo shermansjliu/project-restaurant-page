@@ -1,3 +1,5 @@
+
+
 function createNavbar () {
     const nav = document.querySelector('#navbar');
     const navList = document.createElement('ul');
@@ -12,19 +14,24 @@ function createNavbar () {
 
     iconContainer.appendChild(icon);
     navList.appendChild(createNavItem('Menu'));
-    navList.appendChild(createNavItem('Contact'));
+    navList.appendChild(createNavItem('phone-number'));
+    navList.appendChild(createNavItem('credits'));
     nav.appendChild(navList);
-
-
-
 }
 
 function createNavItem(content) {
     let navItem = document.createElement('li');
-    navItem.classList.toggle('nav-item');
+    
+    if (content.toLowerCase() == 'phone-number') {
+        navItem.textContent = '123-456-789';
+        navItem.classList.add('phone-number')
+    }
+    else {
+        navItem.textContent = content;
+        navItem.classList.toggle('nav-item');
+    }
     navItem.setAttribute('data-page', content);
-    navItem.textContent = content;
-
+    
     return navItem
 }
 
