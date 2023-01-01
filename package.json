@@ -13,8 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "webpac": "^1.0.1",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "dependencies": {
     "npm-watch": "^0.6.0"
